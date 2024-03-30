@@ -1,7 +1,10 @@
 const WEIGHTS = {
+  p150: 24,
+  p125: 20,
   p100: 16,
   p075: 12,
   p050: 8,
+  p025: 4,
 }
 
 export const getQuestions = () => [
@@ -38,7 +41,7 @@ export const getQuestions = () => [
   {
     id: 'q0100',
     weight: {
-      economic: -WEIGHTS.p100,
+      economic: -WEIGHTS.p150,
     },
   },
   {
@@ -108,16 +111,23 @@ export const getQuestions = () => [
     id: 'q0301',
     weight: {
       diplomatic: -WEIGHTS.p100,
+      civil: -WEIGHTS.p050,
     },
   },
   {
     id: 'q0302',
     weight: {
-      diplomatic: -WEIGHTS.p100,
+      diplomatic: -WEIGHTS.p075,
     },
   },
   {
     id: 'q0303',
+    weight: {
+      diplomatic: -WEIGHTS.p150,
+    },
+  },
+  {
+    id: 'q0304',
     weight: {
       diplomatic: -WEIGHTS.p100,
     },
@@ -199,6 +209,12 @@ export const getQuestions = () => [
   {
     id: 'q0506',
     weight: {
+      civil: -WEIGHTS.p150,
+    },
+  },
+  {
+    id: 'q0507',
+    weight: {
       civil: -WEIGHTS.p100,
     },
   },
@@ -212,6 +228,7 @@ export const getQuestions = () => [
     id: 'q0601',
     weight: {
       societal: WEIGHTS.p100,
+      economic: WEIGHTS.p050,
     },
   },
   {
@@ -229,11 +246,18 @@ export const getQuestions = () => [
   {
     id: 'q0604',
     weight: {
-      societal: WEIGHTS.p100,
+      societal: WEIGHTS.p050,
+      sovereignty: WEIGHTS.p075,
     },
   },
   {
     id: 'q0605',
+    weight: {
+      societal: WEIGHTS.p100,
+    },
+  },
+  {
+    id: 'q0606',
     weight: {
       societal: WEIGHTS.p100,
     },
@@ -248,7 +272,7 @@ export const getQuestions = () => [
   {
     id: 'q0701',
     weight: {
-      societal: -WEIGHTS.p100,
+      societal: -WEIGHTS.p075,
       civil: -WEIGHTS.p050,
     },
   },
@@ -261,8 +285,8 @@ export const getQuestions = () => [
   {
     id: 'q0703',
     weight: {
-      societal: -WEIGHTS.p100,
-      civil: -WEIGHTS.p050,
+      societal: -WEIGHTS.p125,
+      civil: -WEIGHTS.p075,
     },
   },
   {
@@ -299,7 +323,7 @@ export const getQuestions = () => [
   {
     id: 'q0803',
     weight: {
-      environmental: WEIGHTS.p100,
+      environmental: WEIGHTS.p125,
     },
   },
   {
@@ -321,29 +345,47 @@ export const getQuestions = () => [
     },
   },
   {
+    id: 'q0903',
+    weight: {
+      environmental: -WEIGHTS.p050,
+    },
+  },
+  {
     id: 'q1000',
     weight: {
-      sovereignty: WEIGHTS.p100,
+      sovereignty: sovereignty > 75 ? WEIGHTS.p050 : WEIGHTS.p100,
     },
   },
   {
     id: 'q1001',
     weight: {
-      sovereignty: WEIGHTS.p100,
+      sovereignty: WEIGHTS.p150,
       diplomatic: -WEIGHTS.p075,
     },
   },
   {
     id: 'q1002',
     weight: {
-      sovereignty: WEIGHTS.p100,
-      diplomatic: -WEIGHTS.p050,
+      sovereignty: WEIGHTS.p075,
+      diplomatic: -WEIGHTS.p075,
     },
   },
   {
     id: 'q1003',
     weight: {
+      sovereignty: WEIGHTS.p050,
+    },
+  },
+  {
+    id: 'q1004',
+    weight: {
       sovereignty: WEIGHTS.p100,
+    },
+  },
+  {
+    id: 'q1005',
+    weight: {
+      sovereignty: WEIGHTS.p050,
     },
   },
   {
@@ -355,27 +397,35 @@ export const getQuestions = () => [
   {
     id: 'q1101',
     weight: {
-      sovereignty: -WEIGHTS.p100,
-      us_vs_china: -WEIGHTS.p075,
+      sovereignty: -WEIGHTS.p150,
+      us_vs_china: -WEIGHTS.p100,
     },
   },
   {
     id: 'q1102',
     weight: {
-      sovereignty: -WEIGHTS.p100,
-      us_vs_china: -WEIGHTS.p075,
+      sovereignty: -WEIGHTS.p075,
+      diplomatic: WEIGHTS.p075,
     },
   },
   {
     id: 'q1103',
     weight: {
       sovereignty: -WEIGHTS.p075,
-      diplomatic: WEIGHTS.p050,
     },
   },
   {
     id: 'q1104',
-    weight: {},
+    weight: {
+      sovereignty: -WEIGHTS.p100,
+      us_vs_china: WEIGHTS.p050,
+    },
+  },
+  {
+    id: 'q1105',
+    weight: {
+      sovereignty: -WEIGHTS.p100,
+    },
   },
   {
     id: 'q1200',
@@ -386,32 +436,37 @@ export const getQuestions = () => [
   {
     id: 'q1201',
     weight: {
-      us_vs_china: WEIGHTS.p100,
+      us_vs_china: us_vs_china > 50 ? WEIGHTS.p075 : WEIGHTS.p025,
     },
   },
   {
     id: 'q1202',
     weight: {
-      us_vs_china: WEIGHTS.p100,
+      us_vs_china: us_vs_china > 50 ? WEIGHTS.p100 : WEIGHTS.p025,
     },
   },
   {
     id: 'q1300',
     weight: {
-      us_vs_china: -WEIGHTS.p100,
+      us_vs_china: us_vs_china > 50 ? -WEIGHTS.p100 : WEIGHTS.p100,
     },
   },
   {
     id: 'q1301',
     weight: {
-      us_vs_china: -WEIGHTS.p100,
-      diplomatic: -WEIGHTS.p050,
+      us_vs_china: -WEIGHTS.p050,
     },
   },
   {
     id: 'q1302',
     weight: {
       us_vs_china: -WEIGHTS.p100,
+    },
+  },
+  {
+    id: 'q1303',
+    weight: {
+      us_vs_china: -WEIGHTS.p125,
     },
   },
 ]

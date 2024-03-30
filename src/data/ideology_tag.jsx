@@ -3,19 +3,23 @@ import MULTIPLIER from '../utils/multiplier'
 export const getIdeologyTags = () => [
   {
     id: 'roc_unification',
-    predicate: (choices) => choices['q1104'] > MULTIPLIER.n,
+    predicate: (choices) => choices['q1104'] >= MULTIPLIER.a,
   },
   {
     id: 'roc_independence',
-    predicate: (choices) => choices['q1000'] > MULTIPLIER.n,
+    predicate: (choices) => choices['q1000'] >= MULTIPLIER.a,
   },
   {
     id: 'tw_independence',
-    predicate: (choices) => choices['q1001'] > MULTIPLIER.n,
+    predicate: (choices) => choices['q1001'] >= MULTIPLIER.sa,
   },
   {
     id: 'prc_unification',
-    predicate: (choices) => choices['q1101'] > MULTIPLIER.n,
+    predicate: (choices) => choices['q1101'] >= MULTIPLIER.a,
+  },
+  {
+    id: 'iron_blood',
+    predicate: (choices) => choices['q1101'] >= MULTIPLIER.a,
   },
   {
     id: 'death_penalty_abolitionists',
@@ -23,11 +27,11 @@ export const getIdeologyTags = () => [
   },
   {
     id: 'homophobia',
-    predicate: (choices) => choices['q0602'] < MULTIPLIER.n,
+    predicate: (choices) => choices['q0602'] <= MULTIPLIER.d,
   },
   {
     id: 'male_chauvinism',
-    predicate: (choices) => choices['q0705'] > MULTIPLIER.n,
+    predicate: (choices) => choices['q0705'] >= MULTIPLIER.a,
   },
   {
     id: 'feminism',
